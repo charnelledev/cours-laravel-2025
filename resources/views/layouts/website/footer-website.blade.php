@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{{-- <footer class=" dark:bg-green-800 shadow mt-8 py-2 px-150 position-relative">
+    <div class="container mx-auto text-center py-4 display-flex flex-col items-center">
+        <p class="text-sm text-gray-600 dark:text-gray-400 ">
+            &copy; {{ date('Y') }} CRUD APPLICATION. All rights reserved.
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+            <a href="#" class="hover:underline">Privacy Policy</a> | 
+            <a href="#" class="hover:underline">Terms of Service</a>
+        </p>
+    </div>
+</footer> --}}
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-        
-           @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
-        @endif
-
-    </head>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-right">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="{{ route('terms-of-service') }}">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
+<footer class="bg-green-500 text-white p-5 text-center ">
+    <div class="max-w-6xl mx-auto">
+        <p class="mb-4">© {{ date('Y') }} Mon Application Laravel. Tous droits réservés.</p>
+        <ul class="list-none p-0 flex justify-center space-x-6">
+            <li><a href="#" class="text-white hover:underline">Privacy Policy</a></li>
+            <li><a href="#" class="text-white hover:underline">Terms of Service</a></li>
+            <li><a href="#" class="text-white hover:underline">Contact Us</a></li>
+        </ul>
     </div>
 </footer>
-@yield('content')
-</html>

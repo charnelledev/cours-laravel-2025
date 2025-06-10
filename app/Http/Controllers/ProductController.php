@@ -9,7 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $Products = Product::all();
+        $Products = Product::orderBy('id', 'desc')->paginate(5);
+        // $Products = Product::all();
         
         $totalProducts = $Products->count();
 
@@ -19,6 +20,23 @@ class ProductController extends Controller
             'totalProducts' => $totalProducts,
         ]);
     }
+    public function create()
+    {
+        return view('pages.products-create');
     
     }
-
+    public function store(Request $request)
+    {
+        $validation  = $request->validate([
+            'title' => 'required|max:255',
+           'category' => 'required|max:255',
+            'price' => 'required|numeric|min:0',
+            
+        ]);
+        Product::create($validation);
+        return redirect()->route('products.index')
+            ->with('success', 'Product created successfully.');
+       
+    }
+    
+}

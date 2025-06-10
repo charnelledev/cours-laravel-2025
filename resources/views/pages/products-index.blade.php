@@ -1,4 +1,4 @@
-@extends('layouts.website.header-website')
+@extends('layouts.website.layout-website')
 
 @section('content')
 
@@ -7,7 +7,16 @@
             <div class="col-md-12">
                 <div class="my-5">
                     <div class="container mx-auto">
-
+                      @if(session()->has('error')) 
+                        <div class="bg-red-400 text-white text-2xl p-4 rounded-md mb-4">
+                            {{ session('error') }}
+                        </div>
+                      @endif
+                        @if(session()->has('success'))
+                        <div class="bg-green-500 text-gray-500 text-2xl p-4 rounded-md mb-4">
+                            {{ session('success') }}
+                        </div>
+                        @endif
 
                         <div class="flex justify-between items-center bg-gray-200 p-5 rounded-md">
                             <div>
@@ -15,7 +24,8 @@
                                     Products ({{ $totalProducts }})</h1>
                             </div>
                             <div>
-                                <a href="#" class="px-5 py-2 bg-blue-500 rounded-md text-white text-lg shadow-md">Add
+                                <a href="{{route('products.create')}}" 
+                                class="px-5 py-2 bg-blue-500 rounded-md text-white text-lg shadow-md">Add
                                     New</a>
                             </div>
                         </div>
@@ -101,6 +111,7 @@
 
                 </tbody>
                                         </table>
+                                        {{ $Products->links() }}
                                     </div>
                                 </div>
                             </div>
