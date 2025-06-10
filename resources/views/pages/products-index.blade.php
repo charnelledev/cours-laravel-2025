@@ -92,13 +92,18 @@
                         </td>
                         <td
                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            <a href="#"
+                            <a href="{{ route('products.edit', ['id' => $product->id]) }}"
                                 class="px-5 py-2 bg-blue-500 rounded-md text-white text-lg shadow-md">Edit</a>
                         </td>
                         <td
                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            <a href="#"
-                                class="px-5 py-2 bg-red-500 rounded-md text-white text-lg shadow-md">Delete</a>
+                            <form action="{{ route('products.destroy', ['id' => $product->id]) }}"
+                                method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="px-5 py-2 bg-red-500 rounded-md text-white text-lg shadow-md">Delete</button>
+                          
                         </td>
                     </tr>
                      @endforeach

@@ -10,7 +10,9 @@ Route::get('/',[productController::class,'index'])->name('products.index');
 Route::get('/products/create', [productController::class, 'create'])->name('products.create');
 Route::post('/products/store', [productController::class, 'store'])->name('products.store');
 
-// Route::get('/product/create' ,function ()
-// {
-//     return view('pages.products.create')->name('product.create');
-// });
+Route::get('/products/edit/{id}', [productController::class, 'edit'])->name('products.edit');
+Route::patch('/products/update/{id}', [productController::class, 'update'])->name('products.update');
+
+Route::delete('/products/delete/{id}', [productController::class, 'destroy'])->name('products.destroy');
+
+
