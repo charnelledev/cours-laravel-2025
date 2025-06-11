@@ -15,4 +15,9 @@ Route::patch('/products/update/{id}', [productController::class, 'update'])->nam
 
 Route::delete('/products/delete/{id}', [productController::class, 'destroy'])->name('products.destroy');
 
+//action qui permet de renvoyer la page 404
+
+Route::get('/{any}', function () {
+    return view('notFoundPge');
+})->where('any', '.*');
 
